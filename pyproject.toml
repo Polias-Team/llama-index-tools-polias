@@ -1,0 +1,57 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "pytest-mock==3.11.1",
+    "ruff==0.11.11",
+    "black[jupyter]>=23.7.0,<=26.10.1",
+    "codespell[toml]>=v2.2.6",
+]
+
+[project]
+name = "llama-index-tools-polias"
+version = "0.1.0"
+description = "llama-index tools polias integration"
+authors = [{name = "Polias", email = "hallo@polias.eu"}]
+requires-python = ">=3.11,<4.0"
+readme = "README.md"
+license = "MIT"
+maintainers = [{name = "Polias", email = "hallo@polias.eu"}]
+keywords = ["polias", "search", "web search", "legal"]
+dependencies = [
+    "requests>=2.31.0",
+    "llama-index-core>=0.13.0,<0.15",
+]
+
+[project.urls]
+Homepage = "https://api.polias.eu/"
+Source = "https://github.com/Polias-Team/llama-index-tools-polias"
+
+[tool.codespell]
+check-filenames = true
+check-hidden = true
+skip = "*.csv,*.html,*.json,*.jsonl,*.pdf,*.txt,*.ipynb"
+
+[tool.hatch.build.targets.sdist]
+include = ["llama_index/"]
+exclude = ["**/BUILD"]
+
+[tool.hatch.build.targets.wheel]
+include = ["llama_index/"]
+exclude = ["**/BUILD"]
+
+[tool.llamahub]
+contains_example = false
+import_path = "llama_index.tools.polias"
+
+[tool.llamahub.class_authors]
+PoliasToolSpec = "Polias-Team"
+
+[tool.mypy]
+disallow_untyped_defs = true
+exclude = ["_static", "build", "examples", "notebooks", "venv"]
+ignore_missing_imports = true
+python_version = "3.8"
