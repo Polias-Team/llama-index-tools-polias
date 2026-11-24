@@ -14,12 +14,16 @@ private person (private accounts: residents of Germany, Austria or Switzerland, 
 Each month, 1,000 searches are free for companies and 100 for private persons. More is available as packages, see
 [pricing](https://api.polias.eu/pricing).
 
+```bash
+export POLIAS_API_KEY="pol_..."
+```
+
 ## Usage
 
 ```python
 from llama_index.tools.polias import PoliasToolSpec
 
-polias = PoliasToolSpec(api_key="pol_...")  # or set POLIAS_API_KEY
+polias = PoliasToolSpec()  # reads the key from POLIAS_API_KEY
 
 docs = polias.search("Kündigung Eigenbedarf", areas=["web", "legal"], count=5)
 for doc in docs:

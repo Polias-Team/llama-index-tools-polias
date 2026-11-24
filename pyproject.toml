@@ -13,7 +13,7 @@ dev = [
 
 [project]
 name = "llama-index-tools-polias"
-version = "0.1.0"
+version = "0.1.1"
 description = "llama-index tools polias integration"
 authors = [{name = "Polias", email = "hallo@polias.eu"}]
 requires-python = ">=3.11,<4.0"
